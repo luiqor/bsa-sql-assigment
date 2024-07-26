@@ -50,7 +50,7 @@ CREATE TABLE "user" (
     "username" VARCHAR(30) NOT NULL UNIQUE,
     "first_name" VARCHAR(50) NOT NULL CHECK (LENGTH("first_name") >= 2),
     "last_name" VARCHAR(50) NOT NULL CHECK (LENGTH("last_name") >= 2),
-    "email" VARCHAR(255) NOT NULL,
+    "email" VARCHAR(255) NOT NULL UNIQUE,
     "password" VARCHAR(20) NOT NULL CHECK (LENGTH("password") BETWEEN 4 AND 20),
     "profile_picture_id" INTEGER UNIQUE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -211,7 +211,8 @@ INSERT INTO "person" (first_name, last_name, profile_picture_id, date_of_birth, 
 INSERT INTO "user" (username, first_name, last_name, email, password, profile_picture_id) VALUES
 ('moviefan1', 'John', 'Doe', 'john@example.com', 'password123', NULL),
 ('cinephile', 'Jane', 'Smith', 'jane@example.com', 'securepass', NULL),
-('filmcritic', 'Bob', 'Johnson', 'bob@example.com', 'critiquepw', NULL);
+('filmcritic', 'Bob', 'Johnson', 'bob@example.com', 'critiquepw', NULL),
+('hater', 'Hi', 'Hi', 'hihihater@example.com', 'iamhater', NULL);
 
 INSERT INTO "movie" (title, description, budget, release_date, duration, country_id, director_id, poster_id) VALUES
 ('Inception', 'A thief who enters the dreams of others', 160000000, '2010-07-16', '02:28:00', 
