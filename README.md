@@ -21,7 +21,7 @@ erDiagram
     character ||--o{ movie_cast : played_in
     person ||--o{ movie_cast : performs
     person ||--o{ person_image : has
-    file ||--o{ person_image : contains
+    file ||--o{ person_image : is_image_of
 
     file {
         SERIAL id PK
@@ -35,9 +35,8 @@ erDiagram
     }
     country {
         SERIAL id PK
-        VARCHAR title
+        CHAR code
         INTEGER flag_logo_id FK
-        VARCHAR flag_hexadecimal
         TIMESTAMPTZ created_at
         TIMESTAMPTZ updated_at
     }

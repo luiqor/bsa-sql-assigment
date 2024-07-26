@@ -2,10 +2,10 @@ SELECT
     person.id,
     person.first_name AS "First name",
     person.last_name AS "Last name",
-    COALESCE(SUM(movie.budget), MONEY(0)) AS "Total movies budget"
+    SUM(movie.budget) AS "Total movies budget"
 FROM
     person
-LEFT JOIN
+JOIN
     movie_cast ON person.id = movie_cast.actor_id
 LEFT JOIN
     movie ON movie_cast.movie_id = movie.id
