@@ -7,7 +7,7 @@ FROM
     person
 JOIN
     movie_cast ON person.id = movie_cast.actor_id
-LEFT JOIN
+JOIN
     movie ON movie_cast.movie_id = movie.id
 GROUP BY
     person.id, person.first_name, person.last_name
